@@ -1,0 +1,14 @@
+body{
+    background-image: url("images/ege.jpeg");
+    color: white;
+    font-family: "comic-sans";
+}
+
+.all-images{/
+    width: 40%;
+}
+
+.title-font{
+    border: white solid 2px;
+    width: 10%;
+}
