@@ -5,6 +5,35 @@
   font-family: "Lilita One", cursive;
 }
 
+.paragraph {
+  margin: auto;
+  width: 100%;
+  max-width: 30em;
+  line-height: 1.25em;
+  letter-spacing: 0.3em;
+  font-size: 16px;
+}
+
+.hi {
+  margin: 100px 0;
+  text-align: center;
+  font-size: 3em;
+}
+
+@media only screen and (min-width: 768px) {
+  .paragraph {
+    max-width: 50em;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .paragraph {
+    font-size: 20px;
+    max-width: 70em;
+  }
+}
+
 h1,
 h2 {
   font-size: 3.5em;
