@@ -1,3 +1,4 @@
+// Array containing the page URLs
 const pageUrls = [
   "http://127.0.0.1:5500/js-card1.html",
   "http://127.0.0.1:5500/js-card2.html",
@@ -5,6 +6,8 @@ const pageUrls = [
   "http://127.0.0.1:5500/js-card4.html",
 ];
 
+// Function to get input of being at bottom of page (didn't worked precisely
+// Used ChatGPT to help in that case
 function isScrollAtBottom() {
   const scrollTrigger = document.getElementById("scrollTrigger");
   const triggerPosition = scrollTrigger.getBoundingClientRect().top;
@@ -18,12 +21,13 @@ function getCurrentPageIndex() {
   var currentUrl = window.location.href;
 
   // Find the index of the current URL in the pageUrls array
+  // For the currentPageIndex
   var currentPageIndex = pageUrls.findIndex((url) => url === currentUrl);
 
   if (currentPageIndex > -1) {
     return currentPageIndex;
   } else {
-    console.log("Unable to determine the current page index from the URL.");
+    console.log("no page url");
     return 0;
   }
 }
@@ -37,6 +41,7 @@ function loadNextPage() {
   var nextPageIndex = currentPageIndex + 1;
 
   // Go to the next page, if there are no pages left, go to the starting page
+  // The nextPage I've developed with ChatGPT, the reset not
   if (nextPageIndex < pageUrls.length) {
     var nextPageUrl = pageUrls[nextPageIndex];
     window.location.href = nextPageUrl;
