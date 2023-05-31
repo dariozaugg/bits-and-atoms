@@ -52,7 +52,8 @@ function loadNextPage() {
     // Construct the relative URL based on the current URL
     var currentUrl = window.location.href;
     var currentUrlObj = new URL(currentUrl);
-    var relativeUrl = currentUrlObj.origin + nextPageUrl;
+    var relativeUrl =
+      currentUrlObj.origin + currentUrlObj.pathname + nextPageUrl;
 
     window.location.href = relativeUrl;
   } else {
