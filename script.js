@@ -1,9 +1,9 @@
 // Array containing the page URLs
 const pageUrls = [
-  "bits-and-atoms/js-card1.html",
-  "bits-and-atoms/js-card2.html",
-  "bits-and-atoms/js-card3.html",
-  "bits-and-atoms/js-card4.html",
+  "js-card1.html",
+  "js-card2.html",
+  "js-card3.html",
+  "js-card4.html",
 ];
 
 // Function to get input of being at the bottom of the page
@@ -20,7 +20,7 @@ function getCurrentPageIndex() {
   var currentUrl = window.location.href;
 
   // Find the index of the current URL in the pageUrls array
-  var currentPageIndex = pageUrls.findIndex((url) => url === currentUrl);
+  var currentPageIndex = pageUrls.findIndex((url) => currentUrl.endsWith(url));
 
   if (currentPageIndex > -1) {
     return currentPageIndex;
@@ -44,10 +44,10 @@ function loadNextPage() {
 
     // Construct the absolute URL based on the current URL
     var currentUrl = window.location.href;
-    var currentUrlObj = new URL(currentUrl);
-    var nextPageAbsoluteUrl = new URL(nextPageUrl, currentUrlObj);
+    var baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf("/") + 1);
+    var nextPageAbsoluteUrl = baseUrl + nextPageUrl;
 
-    window.location.href = nextPageAbsoluteUrl.href;
+    window.location.href = nextPageAbsoluteUrl;
   } else {
     // Go to the starting page
     window.location.href = pageUrls[0];
