@@ -1,12 +1,12 @@
-// Array containing the page URL
+// Array containing the page URLs
 const pageUrls = [
-  "js-card1.html",
-  "js-card2.html",
-  "js-card3.html",
-  "js-card4.html",
+  "bits-and-atoms/js-card1.html",
+  "bits-and-atoms/js-card2.html",
+  "bits-and-atoms/js-card3.html",
+  "bits-and-atoms/js-card4.html",
 ];
 
-// Function to get input of being at bottom of page
+// Function to get input of being at the bottom of the page
 function isScrollAtBottom() {
   const scrollTrigger = document.getElementById("scrollTrigger");
   const triggerPosition = scrollTrigger.getBoundingClientRect().top;
@@ -19,20 +19,13 @@ function getCurrentPageIndex() {
   // Get the current URL
   var currentUrl = window.location.href;
 
-  // Create a URL object from the current URL
-  var currentUrlObj = new URL(currentUrl);
-
-  // Get the pathname of the URL (e.g., /path/to/page.html)
-  var pathname = currentUrlObj.pathname;
-
-  // Find the index of the current URL pathname in the pageUrls array
-  // For the currentPageIndex
-  var currentPageIndex = pageUrls.findIndex((url) => url === pathname);
+  // Find the index of the current URL in the pageUrls array
+  var currentPageIndex = pageUrls.findIndex((url) => url === currentUrl);
 
   if (currentPageIndex > -1) {
     return currentPageIndex;
   } else {
-    console.log("no page url");
+    console.log("No page URL found.");
     return 0;
   }
 }
@@ -49,13 +42,12 @@ function loadNextPage() {
   if (nextPageIndex < pageUrls.length) {
     var nextPageUrl = pageUrls[nextPageIndex];
 
-    // Construct the relative URL based on the current URL
+    // Construct the absolute URL based on the current URL
     var currentUrl = window.location.href;
     var currentUrlObj = new URL(currentUrl);
-    var relativeUrl =
-      currentUrlObj.origin + currentUrlObj.pathname + nextPageUrl;
+    var nextPageAbsoluteUrl = new URL(nextPageUrl, currentUrlObj);
 
-    window.location.href = relativeUrl;
+    window.location.href = nextPageAbsoluteUrl.href;
   } else {
     // Go to the starting page
     window.location.href = pageUrls[0];
