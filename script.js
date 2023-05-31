@@ -1,9 +1,9 @@
 // Array containing the page URLs
 const pageUrls = [
-  "http://127.0.0.1:5500/js-card1.html",
-  "http://127.0.0.1:5500/js-card2.html",
-  "http://127.0.0.1:5500/js-card3.html",
-  "http://127.0.0.1:5500/js-card4.html",
+  "bits-and-atoms/js-card1.html",
+  "bits-and-atoms/js-card2.html",
+  "bits-and-atoms/js-card3.html",
+  "bits-and-atoms/js-card4.html",
 ];
 
 // Function to get input of being at bottom of page (didn't worked precisely
