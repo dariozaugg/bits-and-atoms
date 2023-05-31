@@ -1,10 +1,4 @@
-// Array containing the page URLs
-const pageUrls = [
-  "js-card1.html",
-  "js-card2.html",
-  "js-card3.html",
-  "js-card4.html",
-];
+// Array containing the page URL
 
 // Function to get input of being at bottom of page
 function isScrollAtBottom() {
