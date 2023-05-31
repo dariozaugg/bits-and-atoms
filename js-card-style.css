@@ -9,8 +9,14 @@ body {
   height: 110vh;
 }
 
-p {
+h1 {
+  margin-top: 80%;
+  margin-bottom: 5%;
+}
+
+h1 h2 {
   font-size: 1.5em;
+  margin-top: 1.5em;
 }
 
 .card {

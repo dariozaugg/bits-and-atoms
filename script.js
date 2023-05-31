@@ -33,10 +33,10 @@ function loadNextPage() {
   // Get the current page index based on the current URL
   var currentPageIndex = getCurrentPageIndex();
 
-  // Determine the next page index
+  // Determine the index of the next page
   var nextPageIndex = currentPageIndex + 1;
 
-  // If the next page index is within the valid range, navigate to the corresponding URL
+  // Go to the next page, if there are no pages left, go to the starting page
   if (nextPageIndex < pageUrls.length) {
     var nextPageUrl = pageUrls[nextPageIndex];
     window.location.href = nextPageUrl;
@@ -45,7 +45,7 @@ function loadNextPage() {
   }
 }
 
-// Event listener for scroll
+// Eventlistener for scrolling
 window.addEventListener("scroll", function () {
   if (isScrollAtBottom()) {
     loadNextPage();
